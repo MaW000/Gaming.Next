@@ -26,13 +26,13 @@ interface boardType {
 export default function ConnectFour() {
     const [{board, winner, isGameOver}, dispatchBoard] = useReducer(reducer, genEmptyState())
     const socket = io('http://localhost:3001');
-    useEffect(() => {
-      socket.once('update-board', ({type, colIdx,id}: actionType) => {{
-        console.log(type, colIdx, id)
-        dispatchBoard({type, colIdx})
+    // useEffect(() => {
+    //   socket.once('update-board', ({type, colIdx,id}: actionType) => {{
+    //     console.log(type, colIdx, id)
+    //     dispatchBoard({type, colIdx})
         
-      }})
-    }, [])
+    //   }})
+    // }, [])
    
     return (
       <>
@@ -48,7 +48,7 @@ export default function ConnectFour() {
         }
       
       
-        return <Column key={colIdx} entries={colEntries} onClick={sendMove}/>
+        return <Column key={colIdx} entries={colEntries} onClick={onClickCol}/>
         
         })}
         </div>
