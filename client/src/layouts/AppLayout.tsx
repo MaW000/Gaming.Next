@@ -25,9 +25,9 @@ interface LayoutProps {
             />
             <link rel="icon" href="/favicon.ico" />
           </Head>
-          <div className="flex h-full flex-col">
+          <div className="min-h-screen bg-gradient-to-b from-[#2e026d] to-[#15162c]">
             <DynamicNav />
-            <main className="flex-1">{this.props.children}</main>
+            <main className="mt-20">{this.props.children}</main>
           </div>
         </>
       );
