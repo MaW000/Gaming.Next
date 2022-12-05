@@ -37,6 +37,11 @@ io.on('connection', (socket) => {
     socket.join("room1")
     socket.to('room1').except(socket.id).emit('receive-user', {username, image})
   })
+  socket.on('send-user', ({username, image}: userType) => {
+    socket.to('room1').emit('user', {
+      username, image
+    })
+  })
   socket.on('new-board', ({ type, colIdx, id }: dispatch) => {
     socket.broadcast.emit('update-board', {type, colIdx, id })
   })
